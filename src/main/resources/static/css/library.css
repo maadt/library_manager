@@ -1,1 +1,58 @@
-@charset "UTF-8";
+.model-header .close {
+/*modelクラス内のcloseクラスに適用*/
+	margin-top: -30px;
+}
+
+tr.borrowing {
+/*tr.borrowing セレクタに対して特定のスタイルを適用*/
+	background-color: rgba(169, 145, 145, 0.59);
+}
+
+a.disabled {
+	pointer-events: none;
+	/*クリックやホバーなどのアクションを実行できない*/
+}
+
+.sidebar .nav li:hover.disabled a {
+/*.sidebar .nav li:hover.disabled a セレクタに対して特定のスタイルを適用*/
+	opacity: 0.7;
+}
+
+.sidebar .nav li > form,
+.sidebar .nav li > form:hover {
+/*.sidebar .nav li > form セレクタと .sidebar .nav li > form:hover セレクタに対して特定のスタイルを適用*/
+	-webkit-transition:all 150ms ease-in;
+	-moz-transition:all 150ms ease-in;
+	-o-transition:all 150ms ease-in;
+	-ms-transition:all 150ms ease-in;
+	transition:all 150ms ease-in;
+	/*アニメーション効果の設定*/
+}
+
+.side .nav li > form {
+	margin:10px 0px;
+	padding:10px 25px;
+	opacity:.7;
+}
+
+.sidebar .nav li > form:hover {
+	opacity:1;
+}
+
+button {
+	padding:0;
+	line-height:30px;
+	/*line-height：行間の高さ*/
+	font-size:12px;
+	font-weight:600;
+	text-transform: uppercase;
+	/*text-transform：テキストの表示形式を変更する*/
+	/*uppercase：テキスト内の文字を全て大文字にする*/
+	border: none;
+	background-color: inherit;
+}
+
+.card .book-title {
+	font-size: 12px;
+	font-weight:600;
+}

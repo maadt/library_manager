@@ -38,4 +38,25 @@
 	  <!--Library CSS：ウェブデザインやアプリケーションデザインを効率的に実装する-->
 
 </head>
+<body>
+	<div class="wrapper">
+		<div th:replace="~{layouts/sidebar :: sidebar}"></div>
+		  <!--"layouts/sidebar"テンプレート内の"sidebar"という名前のフラグメントを指定-->
+		<div class="main-panel">
+			<div th:replace="${content}"></div>
+			  <!--"content"というフラグメントを参照-->
+			<div th:replace="~{layouts/footer :: footer}"></div>
+			  <!--"layouts/footer"テンプレート内の"footer"という名前のフラグメントを指定-->
+		</div>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+	</script>
+	  <!--script src=" "：ウェブページでjQueryの機能を使用できるようにする-->
+	  <!--integrity：ファイルが改ざんされていないことを確認-->
+	  <!--crossorigin：クロスオリジンのリクエストを許可するかどうかを制御-->
+	  <!--anonymous：クロスオリジンリクエストを無効にする-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	  <!--Bootstrap JavaScriptファイルをウェブページに組み込む-->
+</body>
 </html>

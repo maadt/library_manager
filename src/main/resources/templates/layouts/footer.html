@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<title>footer</title>
 </head>
 <body>
-
+<footer th:fragment="footer" class="footer">
+	<div class="container-fluid">
+	  <!--container-fluid：コンテンツを親要素いっぱいに広げる-->
+		<nav class="pull-left"></nav>
+		  <!--pull-left：要素を左側に配置-->
+		<div class="copyright pull-right">
+		  <!--copyright：著作権情報を含む-->
+		  <!--pull-right：要素を右側に配置-->
+			&copy; <script>document.write(new Date().getFullYear())</script>
+			  <!--&copy;：著作権記号を表す-->
+			  <!--script：scriptを使用-->
+			  <!--document.write(new Date().getFullYear())：ウェブページの著作権情報に現在の年を動的に挿入>-->
+		</div>
+	</div>
+</footer>
 </body>
 </html>
