@@ -34,11 +34,7 @@ public class LoginUser implements UserDetails {
     
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-    	
-        if (this.user.getRole().equals("管理者")) {
-            return AuthorityUtils.createAuthorityList("ADMIN", "GENERAL");
-        }
-        return AuthorityUtils.createAuthorityList("GENERAL");	
+    	return AuthorityUtils.NO_AUTHORITIES;	
     }
 
     @Override
