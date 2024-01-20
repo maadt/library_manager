@@ -4,6 +4,7 @@ package com.example.service;
 // リポジトリインターフェースを持つ
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,12 @@ public class LibraryService {
 	// エンティティクラスに全てのデータがList型で格納される
 		return this.libraryRepository.findAll();
 		// 依存性注入によって提供されたリポジトリインターフェースの機能「findAll()」を実行
+	}
+	
+	// 書籍情報を1件取得
+	public Library findById(Integer id) {
+		Optional<Library> optionalLibrary = this.libraryRepository.findById(id);
+		Library library = optionalLibrary.get();
+		return library;
 	}
 }
