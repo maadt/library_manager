@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,16 @@ public class LibraryController {
 	@Autowired
 	public LibraryController(LibraryService libraryService) {
 		this.libraryService = libraryService;
+	}
+	
+	@GetMapping // 接続名:ポート番号/libraryで実行される
+	public String index(Model model) {
+		List<Library> libraries = this.libraryService.findAll();
+		// サービスクラスを実行して取得したデータを「libraries」とする
+		model.addAttribute("libraries", libraries);
+		// librariesをモデルに追加
+		return "library/index";
+		// index.htmlの表示
 	}
 	
 	@GetMapping("/borrow")
