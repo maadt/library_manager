@@ -11,6 +11,7 @@ import com.example.entity.User;
 
 
 public class LoginUser implements UserDetails {
+// UserDetails：認証されたユーザーの詳細情報を提供する
 
     private final User user;
 
@@ -30,6 +31,10 @@ public class LoginUser implements UserDetails {
     @Override
     public String getUsername() {
         return this.user.getEmail();
+    }
+    
+    public Integer getUserId() {
+        return user.getId(); 
     }
     
     @Override

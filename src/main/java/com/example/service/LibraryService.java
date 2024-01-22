@@ -37,4 +37,12 @@ public class LibraryService {
 		// Optional.get()：Optionalオブジェクトが持っている値を返す
 		return library;
 	}
+	
+	// 書籍情報を更新
+	public Library update(Integer id, Integer userId) {
+		Library library = this.findById(id);
+		library.setUserId(userId);
+		return this.libraryRepository.save(library);
+		// library：更新されたLibraryオブジェクトをデータベースに保存する
+	}
 }
