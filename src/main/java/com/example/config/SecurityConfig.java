@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .loginPage("/loginForm")
             .usernameParameter("email")
             .passwordParameter("password")
-            .defaultSuccessUrl("/library/index", true)
+            .defaultSuccessUrl("/library", true)
             .failureUrl("/loginForm?error");
     	
     	http.logout()
