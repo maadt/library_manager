@@ -22,7 +22,7 @@
                             <h4 class="title">Borrow book data</h4>
                         </div>
                         <div class="content">
-                            <form th:action="@{/library/borrow}" method="post"><!--変更-->
+                            <form th:action="@{/borrow/{id}(id=${library.id})" method="post"><!--変更-->
                                 <div class="book-title" th:text="${library.name}"><!--変更-->
                                 </div>
                                 <hr>
@@ -30,14 +30,13 @@
                                     <label>return date</label>
                                     <input class="form-control border-input" name="return_due_date" type="date" placeholder="date">
                                 </div>
-                                </div>
                                 <div class="text-center">
-                                    <input name="id" type="hidden" value="1">
+                                    <input name="id" type="hidden" value="${library.id}">
                                     <button class="btn btn-success btn-fill btn-wd" type="submit">borrow!</button>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div>
-                                    <a href="/library">一覧へ戻る</a><!--追加-->
+                                    <a href="/library/index">一覧へ戻る</a><!--追加-->
                                 </div>
                             </form>
                         </div>

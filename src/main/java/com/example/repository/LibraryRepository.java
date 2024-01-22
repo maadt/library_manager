@@ -12,5 +12,4 @@ import com.example.entity.Library;
 @Repository
 public interface LibraryRepository extends JpaRepository<Library, Integer> {
 // <エンティティクラス, 主キー>とすることでエンティティクラスとデータベースが正しくマッピングされる
-	
 }
