@@ -34,6 +34,7 @@ public class LibraryService {
 	public Library findById(Integer id) {
 		Optional<Library> optionalLibrary = this.libraryRepository.findById(id);
 		Library library = optionalLibrary.get();
+		// Optional.get()：Optionalオブジェクトが持っている値を返す
 		return library;
 	}
 }

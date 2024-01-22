@@ -21,14 +21,15 @@ public class LibraryController {
 		this.libraryService = libraryService;
 	}
 	
-	@GetMapping("/borrow/{id}")
+	@GetMapping("/borrow")
+	// @RequestParamによって{id}は必要無い
 	public String borrowingForm(@RequestParam("id") Integer id, Model model) {
 		//@RequestParam()：Webリクエストから特定のリクエストパラメータをメソッドのパラメータにバインドする
 		Library library = this.libraryService.findById(id);
 		// Library library：書籍情報（library）を定義
 		// this.libraryService.findById(id)：リクエストパラメータで渡された書籍IDに該当する書籍情報を1件取得し代入
 		model.addAttribute("library", library);
-		return "borrowingForm";
-		// borrowingForm.htmlを返す
+		return "library/borrowingForm";
+		// library/borrowingForm.htmlを返す
 	}
 }

@@ -22,7 +22,7 @@
                             <h4 class="title">Borrow book data</h4>
                         </div>
                         <div class="content">
-                            <form th:action="@{/borrow/{id}(id=${library.id})" method="post"><!--変更-->
+                            <form th:action="@{/borrow/{id}(id=${library.id})}" method="post"><!--変更-->
                                 <div class="book-title" th:text="${library.name}"><!--変更-->
                                 </div>
                                 <hr>
