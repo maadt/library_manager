@@ -58,8 +58,8 @@ public class LibraryController {
 		// @AuthenticationPrincipal：認証済みユーザーのUserDetailsのインスタンスを直接取得する
 		Library library = this.libraryService.findById(id);
 		// 変数 library を定義し、リクエストパラメータで渡された書籍IDに該当する書籍情報を1件取得し代入する
-		Integer userId = loginUser.getUserId();
-		// 取得した書籍情報の USER_ID を
+		Integer userId = library.getUserId();
+		// 取得した書籍情報の USER_ID を ↓
 		this.libraryService.update(id, userId);
 		// 現在ログインしているユーザーのIDで上書きし LIBRARIES テーブルの情報を更新
 		this.logService.save(id, userId, returnDueDate);

@@ -38,6 +38,6 @@ public class LogService {
 		// 指定した日付を LocalDateTimeとして保存するには parse()メソッドを利用する
 		log.setReturnDueDate(parsedDate); // RETURN_DUE_DATE はフォームから送られてきた返却予定日とする
 		log.setReturnDate(null);// return_dateにはNULLを設定
-		return this.logRepository.save(log); // itemRepositoryを介してDBにデータが保存される
+		return this.logRepository.save(log); // logRepositoryを介してDBにデータが保存される
 	}
 }
