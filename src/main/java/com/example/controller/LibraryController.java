@@ -66,4 +66,13 @@ public class LibraryController {
 		return "redirect:/library";
 		// リダイレクト
 	}
+	
+	@PostMapping("/return")
+	public String returnBook(@RequestParam("id") Integer id, @AuthenticationPrincipal LoginUser loginUser) {
+		Library library = this.libraryService.findById(id); //1
+		Integer userId = loginUser.getUserId();
+		this.libraryService.update(id); //2
+		this.logService.save(id, userId); //3
+		return "redirect:/library"; //4
+	}
 }

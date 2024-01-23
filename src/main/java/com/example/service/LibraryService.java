@@ -38,9 +38,18 @@ public class LibraryService {
 		return library;
 	}
 	
-	// 書籍情報を更新
+	// 貸し出し処理
 	public Library update(Integer id, Integer userId) {
 		Library library = this.findById(id);
+		library.setUserId(userId);
+		return this.libraryRepository.save(library);
+		// library：更新されたLibraryオブジェクトをデータベースに保存する
+	}
+	
+	// 返却処理
+	public Library update(Integer id) {
+		Library library = this.findById(id);
+		Integer userId = 0;
 		library.setUserId(userId);
 		return this.libraryRepository.save(library);
 		// library：更新されたLibraryオブジェクトをデータベースに保存する

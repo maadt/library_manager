@@ -27,7 +27,6 @@ public class LogService {
 	
 	// 挿入処理
 	public Log save(Integer id, Integer userId, String returnDueDate) {
-				
 		Log log = new Log(); 
 		log.setLibraryId(id); // LIBRARY_ID は対象の書籍のIDとする
 		log.setUserId(userId); // USER_ID は現在ログインしているユーザーのIDとする
@@ -39,5 +38,14 @@ public class LogService {
 		log.setReturnDueDate(parsedDate); // RETURN_DUE_DATE はフォームから送られてきた返却予定日とする
 		log.setReturnDate(null);// return_dateにはNULLを設定
 		return this.logRepository.save(log); // logRepositoryを介してDBにデータが保存される
+	}
+	
+	// 返却処理
+	public Log save(Integer id, Integer userId) {
+		Log log = this.logRepository.findFirstByLibraryIdAndUserIdOrderByRentDateDesc(id, userId);
+		log.setLibraryId(id);
+		log.setUserId(userId);
+		log.setReturnDate(LocalDateTime.now());
+		return this.logRepository.save(log);
 	}
 }
