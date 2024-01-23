@@ -33,18 +33,19 @@
 										<td th:text="${library.id}"></td>
 										<td th:text="${library.name}"></td>
 										<td>
-											<!--貸し出しフォームを表示する-->
-											<!--ボタンはテーブル表示されている各書籍の右側に書籍数分表示-->
-											<form action="@{/library/borrow}" method="get">
-											<!--formタグを利用し、actionは/library/borrowでmethodはgetを指定-->
-											<!--action="@{/library/borrow}"：/library/borrowへフォームを送信する-->
-											<!--method="get"：@GetMappingであるため-->
+											<!--貸し出しフォームを表示する
+											    ボタンはテーブル表示されている各書籍の右側に書籍数分表示-->
+											<form th:action="@{/library/borrow}" method="get">
+											<!--formタグを利用し、actionは/library/borrowでmethodはgetを指定
+											    action="@{/library/borrow}"：/library/borrowへフォームを送信する
+											    method="get"：@GetMappingであるため-->
 												<input type="hidden" name="id" th:value="${library.id}">
-												<!--input type="hidden"を利用して書籍IDをGETパラメータとして指定-->
-												<!--name="id"：@RequestParam("id")であるため-->
+												<!--input type="hidden"を利用して書籍IDをGETパラメータとして指定
+												    name="id"：@RequestParam("id")であるため
+												    ${library.id}：librariesテーブルのidフィールドを指す-->
 												<input class="btn btn-info" type="submit" value="borrow">
-												<!--input type="submit"要素にはclass="btn btn-info"を指定-->
-												<!--input type="submit"要素のvalueはborrowと指定-->
+												<!--input type="submit"要素にはclass="btn btn-info"を指定
+												    input type="submit"要素のvalueはborrowと指定-->
 											</form>
 										</td>
 									</tr>
