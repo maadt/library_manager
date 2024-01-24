@@ -1,13 +1,19 @@
 package com.example.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+
 // データベースのデータをプログラムで扱えるようカプセル化し再構築する
 // データベース一行ごとにオブジェクトを生成しList型のクラスに格納する
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -50,4 +56,11 @@ public class Library {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
+	
+	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Library> libraries;
+
+    public List<Library> getLibraries() {
+        return this.libraries;
+    }
 }

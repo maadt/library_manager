@@ -85,7 +85,8 @@ public class Log {
 		this.returnDueDate = returnDueDate;
 	}
 	
-    @ManyToOne
+	//ログ一覧ページに書籍の名前を表示する
+    @ManyToOne //LIBRARIES テーブルが1となり、LOGS テーブルが多となるように設定
     @JoinColumn(name = "library_id", insertable = false, updatable = false)
     private Library library;
 

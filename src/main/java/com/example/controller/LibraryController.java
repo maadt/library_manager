@@ -75,4 +75,14 @@ public class LibraryController {
 		this.logService.save(id, userId); //3
 		return "redirect:/library"; //4
 	}
+	
+	/*
+	@GetMapping("/history")
+	public String history(Model model, @AuthenticationPrincipal LoginUser loginUser) {
+		Integer userId = loginUser.getUserId();
+		List<log> = this.logService.read(userId);
+		
+		return "borrowHistory";
+	}
+	*/
 }
