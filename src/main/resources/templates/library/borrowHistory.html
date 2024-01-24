@@ -30,13 +30,13 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="library : ${libraries}">
-										<td th:text="${library.name}"></td>
-										<td th:text="${#temporals.format(retrunDate, 'yyyy-MM-dd')}"></td>
+									<tr th:each="log : ${logs}">
+										<td th:text="${log.library.name}"></td>
+										<td th:text="${#temporals.format(log.rentDate, 'yyyy-MM-dd')}"></td>
 										<!--#temporals：日付と時刻に関する操作を提供する-->
-										<td th:text="${条件式}? 'A' : 'B'">
-											<!-- 条件式が真のとき「A」が、偽のとき「B」が出力される -->
-										</td>
+										<td th:text="${log.returnDate != null}? 
+										${#temporals.format(log.returnDate, 'yyyy-MM-dd')} : '-'"></td>
+										<!-- 条件式が真のとき「返却日」が、偽のとき「-」が出力される -->
 									</tr>
 								</tbody>
 							</table>

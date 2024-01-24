@@ -59,9 +59,9 @@ public class Library {
 	
 	@OneToMany(mappedBy = "library", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	// library：Log.javaの「private Library library;」と紐づいている
-    private List<Library> libraries;
+    private List<Log> logs;
 
-    public List<Library> getLibraries() {
-        return this.libraries;
+    public List<Log> getLogs() {
+        return this.logs;
     }
 }

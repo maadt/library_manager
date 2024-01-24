@@ -49,14 +49,9 @@ public class LogService {
 		return this.logRepository.save(log);
 	}
 	
-	/*
+	
 	// 貸し出し履歴取得
-	public Log read(Integer userId) {
-		Log log = this.logRepository.findById(userId);
-		log.setLibraryId(id);
-		log.setUserId(userId);
-		log.setReturnDate(LocalDateTime.now());
-		return this.logRepository.save(log);
+	public List<Log> read(Integer userId) {
+		return this.logRepository.findByUserId(userId);
 	}
-	*/
 }

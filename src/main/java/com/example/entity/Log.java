@@ -88,6 +88,7 @@ public class Log {
 	//ログ一覧ページに書籍の名前を表示する
     @ManyToOne //LIBRARIES テーブルが1となり、LOGS テーブルが多となるように設定
     @JoinColumn(name = "library_id", insertable = false, updatable = false)
+    // library_id：Logテーブルから見たときは、多:1なのでリレーションを組む相手は一意のものを参照出来ないといけない
     private Library library;
 
     public Library getLibrary() {
